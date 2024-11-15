@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# Netflix Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Netflix clone built with React, TypeScript, and The Movie Database (TMDB) API. Features user authentication with Firebase.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+1. Install dependencies:
+```bash
+npm install
+```
 
-### `npm start`
+2. Get TMDB API Key:
+- Go to [TMDB website](https://www.themoviedb.org/)
+- Create an account and log in
+- Go to Settings > API and request an API key
+- Copy your API key
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Set up Firebase:
+- Go to [Firebase Console](https://console.firebase.google.com/)
+- Create a new project
+- Enable Authentication (Email/Password)
+- Go to Project Settings > General
+- Scroll down to "Your apps" and click the web icon (</>)
+- Register your app and copy the Firebase config
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. Create a `.env` file in the root directory and add:
+```
+REACT_APP_TMDB_API_KEY=your_tmdb_api_key_here
+REACT_APP_TMDB_BASE_URL=https://api.themoviedb.org/3
+REACT_APP_IMAGE_BASE_URL=https://image.tmdb.org/t/p
 
-### `npm test`
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. Start the development server:
+```bash
+npm start
+```
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Install Firebase CLI:
+```bash
+sudo npm install -g firebase-tools
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Login to Firebase:
+```bash
+firebase login
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Update `.firebaserc` with your project ID:
+```json
+{
+  "projects": {
+    "default": "your-firebase-project-id"
+  }
+}
+```
 
-### `npm run eject`
+4. Build the project:
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. Deploy to Firebase:
+```bash
+firebase deploy
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Your app will be deployed to `https://your-project-id.web.app`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Netflix-like UI with rows of movies/shows
+- Dynamic navbar that changes on scroll
+- Movie/Show data from TMDB API
+- User authentication (signup, login, logout)
+- Protected routes
+- Profile management
+- Responsive design
+- Smooth animations and transitions
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- TypeScript
+- Styled Components
+- React Router
+- Firebase Authentication
+- Firebase Hosting
+- Axios
+- TMDB API
